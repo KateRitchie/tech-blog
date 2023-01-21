@@ -15,7 +15,32 @@ router.post('/', withAuth, async (req, res) => {
       res.status(400).json(err);
     }
   });
-  
+
+  //Update post (formatting followed from previous challenge)
+  router.put('/:id', withAuth, (req, res) => {
+    Post.update(
+      {
+        title: req.body.title,
+        post_text: req.body.post_text
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
+      .then(dbPostData => {
+        if (!dbPostData) {
+          res.status(404).json({ message: 'No post found with this id' });
+          return;
+        }
+        res.json(dbPostData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
   //Delete post
   router.delete('/:id', withAuth, async (req, res) => {
     try {
