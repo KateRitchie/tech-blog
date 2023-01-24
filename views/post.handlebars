@@ -1,25 +1,23 @@
 <div class="text">
-	<div class="container blogBoxCont">
+	<div class="container">
 		<div class="row headerRow">
 			<div class="col-8">
-				<h2 class="postTitle text-uppercase">{{title}}</h2>
+				<h2 class="postTitle">{{title}}</h2>
 			</div>
 			<div class="col-4">
-				<p class="postCreate text-right">Created by {{user.username}} on {{format_date date_created}}</p>
+				<p class="postCreate text-right">Created by {{user.username}} on {{date_created}}</p>
 			</div>
 		</div>
-		<p class="text-center postDescTwo">{{description}}</p>
+		<p class="text-center">{{description}}</p>
 		</div>	
 </div>
 
-		{{#if logged_in}}
+		{{#if loggedIn}}
 
-		<form class="new-comment-form formCont d-flex flex-wrap justify-content-center" data-postid={{id}}>
-			<div class="textAreaCont p-2">
+		<form class="new-comment-form d-flex flex-wrap justify-content-center" data-post="{{id}}">
+			<div class="textArea p-2">
 				<textarea id="comment_description" name="comment-body"
-				placeholder="Comments"
-				cols="30"
-				rows="2"></textarea>
+				placeholder="Comments" cols="30" rows="2"></textarea>
 			</div>
 			<div class="btnComment p-2">
 				<button class="button btn btn-success" type="submit">Add Comment</button>
@@ -30,9 +28,9 @@
 
 		<h2 class="text-center">Comments</h2>
 		{{#each comments as |comment|}}
-		<div class="commentCont">
-			<p class="text-center commentText">{{comment.comment_description}}</p>
-			<p class="text-center commentOwner"><span>Created by {{comment.user.username}} on {{date_created}}</span></p>
+		<div>
+			<p class="text-center">{{comment.comment_description}}</p>
+			<p class="text-center"><span>Created by {{comment.user.username}} on {{date_created}}</span></p>
 		</div>
 		{{/each}}
 

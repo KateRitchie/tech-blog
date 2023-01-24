@@ -6,12 +6,12 @@
 			<div class="row  justify-content-center headerRow">
       <div class="col-8">
         <h2>
-          <a class="postTitle text-uppercase" href="/post/{{post.id}}">{{post.title}}</a>
+          <a class="postTitle text-center" href="/post/{{post.id}}">{{post.title}}</a>
         </h2>
       </div>
 
       <div class="col-4">
-        <p class="postCreate text-right">Created by
+        <p class="postCreate text-center">Created by
           {{post.user.username}}
           on
           {{format_date post.date_created}}
@@ -19,7 +19,7 @@
       </div>
 			</div>
     <div class="postDesc">
-      <p class="text-center postMain">
+      <p class="text-left postMain">
         {{post.description}}
       </p>
     </div>

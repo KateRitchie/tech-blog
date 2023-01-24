@@ -2,7 +2,7 @@
 const commentFormHandler = async function (event) {
 	event.preventDefault();
 
-	const post_id = document.querySelector('.new-comment-form').dataset.postid;
+	const post_id = document.querySelector('.new-comment-form').dataset.post;
 
 	const comment_description = document.querySelector('#comment_description').value.trim();
 
@@ -17,8 +17,13 @@ const commentFormHandler = async function (event) {
 				'Content-Type': 'application/json'
 			}
 		});
-		document.location.reload();
+		if (response.ok) {
+			document.location.reload();
+		} else {
+			alert('Failed comment');
+		}
 	}
+	
 };
 
 document
