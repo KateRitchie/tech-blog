@@ -1,14 +1,17 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //Get all comments
-router.get('/', (req,res) => {
-    Comment.findAll({})
-    .then(dbCommentData => res.json(dbCommentData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err)
-    });
+router.get('/', async (req, res) => {
+  try {
+      const dbCommentData = await Comment.findAll({});
+      const comments = dbCommentData.map(comment => comment.get({ plain: true }));
+      res.render('post', { comments });
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  };
 });
 
 //Get comments by id
