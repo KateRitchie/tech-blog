@@ -2,7 +2,7 @@
 const commentFormHandler = async function (event) {
 	event.preventDefault();
 
-	const post_id = document.querySelector('.new-comment-form').dataset.post;
+	const post_id = document.querySelector('.newComment').dataset.post;
 
 	const comment_description = document.querySelector('#comment_description').value.trim();
 	console.log(post_id, comment_description)
@@ -27,5 +27,5 @@ const commentFormHandler = async function (event) {
 };
 
 document
-	.querySelector('.new-comment-form')
+	.querySelector('.newComment')
 	.addEventListener('submit', commentFormHandler);

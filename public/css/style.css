@@ -6,3 +6,7 @@ body {
 .headerRow {
     border-style: solid;
 }
+
+.commentList {
+  border-style: solid;
+}
