@@ -22,7 +22,7 @@ Run the following commands from the CLI at the root of your project and answer t
 
 7. node server
 
-Link to deployed site: [Tech-Blog]
+Link to deployed site: [Tech-Blog](https://ancient-everglades-17516.herokuapp.com/login)
 
 ## Credits
 
