@@ -1,37 +1,36 @@
 <div class="row">
-	<div class="container">
+	<div>
 		<div class="row headerRow">
 			<div class="col-8">
 				<h2 class="postTitle">{{title}}</h2>
 			</div>
 			<div class="col-4">
-				<p class="text-right">Created by {{user.username}} on {{format_date date_created}}</p>
+				<p class="text-left gy-2">Created by {{user.username}} on {{format_date date_created}}</p>
 			</div>
 		</div>
-		<p class="text-left">{{description}}</p>
-		</div>	
+		<p class="text-left" id="postDesc2">{{description}}</p>
+	</div>
 </div>
-		<h2 class="text-left">Comments</h2>
-		{{#each comments as |comment|}}
-		<div class="row commentList">
-			<p class="text-left col-8">{{comment.comment_description}}</p>
-			<p class="text-left col-4"><span>Created by {{comment.user.username}} on {{format_date date_created}}</span></p>
-		</div>
-		{{/each}}
+<h2 class="text-left gy-2">Comments</h2>
+{{#each comments as |comment|}}
+<div class="row commentList">
+	<p class="text-left gy-2 col-8">{{comment.comment_description}}</p>
+	<p class="text-left gy-2 col-4"><span>Created by {{comment.user.username}} on {{format_date date_created}}</span>
+	</p>
+</div>
+{{/each}}
 
-		{{#if loggedIn}}
+{{#if loggedIn}}
 
-		<form class="newComment d-flex flex-wrap justify-content-center" data-post={{id}}>
-			<div class="textArea p-2">
-				<textarea id="comment_description" name="comment-body"
-				placeholder="Comments" cols="30" rows="2"></textarea>
-			</div>
-			<div class="btnComment p-2">
-				<button class="button btn btn-success" type="submit">Add Comment</button>
-			</div>
-		</form>
+<form class="newComment d-flex flex-wrap justify-content-center" data-post={{id}}>
+	<div class="form-group">
+		<textarea id="comment_description" class="form-input" placeholder="Comments" rows="2"></textarea>
+	</div>
+	<div class="btnComment p-2">
+		<button class="button btn btn-primary" type="submit">Add Comment</button>
+	</div>
+</form>
 {{/if}}
-		
 
-		<script src="/js/comment.js"></script>
-		
+
+<script src="/js/comment.js"></script>

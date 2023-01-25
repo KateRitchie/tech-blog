@@ -1,9 +1,9 @@
 const newFormHandler = async (event) => {
 	event.preventDefault();
 
-	const title = document.querySelector('#post-title').value.trim();
+	const title = document.querySelector('#postTitle').value.trim();
 
-	const description = document.querySelector('#post-desc').value.trim();
+	const description = document.querySelector('#postDesc').value.trim();
 
 	if (title && description) {
 		const response = await fetch('/api/post', {
@@ -39,9 +39,9 @@ const delButtonHandler = async (event) => {
 };
 
 document
-	.querySelector('.new-post-form')
+	.querySelector('.newPost')
 	.addEventListener('submit', newFormHandler);
 
 document
-	.querySelector('.post-list')
+	.querySelector('.postList')
 	.addEventListener('click', delButtonHandler);
